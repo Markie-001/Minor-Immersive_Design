@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-entity camera look-controls>
+            <a-entity cursor="rayOrigin: mouse;" position="0 0 -1"
+                        geometry="primitive: ring; radiusInner: 0.02;
+                        radiusOuter: 0.03"
+                        material="color: black; shader: flat">
+            </a-entity>
+        </a-entity>
+
+        <a-box id="mijnKubus" position="-2 1 -4" color="blue" interactief-object></a-box>
+        <a-sphere id="mijnBol" position="2 1 -4" color="red"  interactief-object></a-sphere>
+    </a-scene>
+</body>
+</html>
