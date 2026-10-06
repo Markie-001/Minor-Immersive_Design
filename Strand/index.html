@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Strand</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-camera><a-cursor></a-cursor></a-camera>
+        <a-entity cursor position="0 0 -5"></a-entity>
+        <a-assets>
+            <audio id="ocean" src="../assets/Waves.mp3" preload="auto"></audio>
+            <a-asset-item id="my-model" src="../assets/kenney_pirate-kit/Models/GLB format/ship-pirate-large.glb"></a-asset-item>
+        </a-assets>
+
+        <a-entity
+            gltf-model="#my-model"
+            position="0 0 9"
+            scale="0.5 0.5 0.5" 
+            rotation="0 120 0"
+            
+            animation="property: rotation; to: 0 360 0;
+                       loop: true; dur: 2000 easing: linear" 
+
+            animation_float="property: position; dir:
+                        alternate; to: 0 1.2 -3; loop: true;
+                        dur: 2000; easing: EaseInOutSine">
+        </a-entity>
+
+        
+        <a-entity light="color: #AFA; intensity: 0.8" position="-1 1 0"></a-entity>
+        <a-entity light="type: directional; color: FEF3E2; intensity: 1" position="1 1 1"></a-entity>
+
+        <a-sphere position="0 5 10" 
+        animation="property: position;
+        to: 0 10 5; dur: 1000; easing: linear; loop: true"
+        color="white" scale="1.5 1.5 1.5"></a-sphere>
+
+        <a-box position="-1 0.5 -3" rotation="0 45 0"
+        material="src: url(../assets/Click.jpg)"
+        sound="src: #ocean; on: click"></a-box>
+
+        <a-entity id="schelp" geometry="primitive: sphere; radius: 0.3"
+                material="src: url(../assets/Shell.png)"  
+                animation="property: position;
+                from: 0 0.1 0;
+                to: 0 0.3 0;
+                dur: 750;
+                dir: alternate;
+                loop: true">
+        </a-entity>
+
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" material="src: url(../assets/Sand.webp)"></a-plane>
+        <a-plane position="0 0 6" rotation="-90 0 0" width="10" height="10" material="src: url(../assets/Ocean.jpg)"></a-plane>
+        <a-sky color="#3b75a6"></a-sky>
+    </a-scene>
+</body>
+</html>
