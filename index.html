@@ -14,6 +14,9 @@
         <!-- Assets -->
         <a-assets timeout="10000">
             <audio id="ocean" src="assets/Waves.mp3" preload="auto"></audio>
+            <audio id="chest-open" src="assets/chest-open-sound.mp3" preload="auto"></audio>
+            <audio id="sand" src="assets/sand.mp3" preload="auto"></audio>
+            <audio id="pirates" src="assets/pirates.mp3" preload="auto"></audio>
             <a-asset-item id="my-model" src="assets/treasure_chest.glb"></a-asset-item>
             <a-asset-item id="my-castle" src="assets/sand-castle.glb"></a-asset-item>
             <a-asset-item id="my-boat" src="assets/boat.glb"></a-asset-item>
@@ -24,8 +27,9 @@
             gltf-model="#my-boat"
             scale="0.4 0.4 0.4"
             rotation="0 90 0"
+            sound="src: #pirates; on: click"
             animation="property: position; from: 8 0.7 11; to: -7 0.7 11; dur: 3000; 
-                       dir: alternate; loop: true">>
+                       dir: alternate; loop: true">
         </a-entity>
 
         <!-- Sand Castle -->
@@ -33,6 +37,7 @@
             gltf-model="#my-castle"
             position="-7.5 0.50 -7"
             scale="0.4 0.4 0.4"
+            sound="src: #sand; on: click"
             rotation="0 90 0">
         </a-entity>
 
@@ -41,6 +46,7 @@
             gltf-model="#my-model"
             position="-5 0.05 0.08"
             scale="1 1 1"
+            sound="src: #chest-open; on: click"
             rotation="0 135 0">
         </a-entity>
 
