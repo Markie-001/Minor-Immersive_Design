@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strand</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene background="color: #1E90FF">
+        <!-- Cursor -->
+        <a-camera><a-cursor></a-cursor></a-camera>
+        
+        <!-- Assets -->
+        <a-assets timeout="10000">
+            <audio id="ocean" src="assets/Waves.mp3" preload="auto"></audio>
+            <a-asset-item id="my-model" src="assets/treasure_chest.glb"></a-asset-item>
+            <a-asset-item id="my-castle" src="assets/sand-castle.glb"></a-asset-item>
+            <a-asset-item id="my-boat" src="assets/boat.glb"></a-asset-item>
+        </a-assets>
+
+        <!-- Boat -->
+        <a-entity
+            gltf-model="#my-boat"
+            scale="0.4 0.4 0.4"
+            rotation="0 90 0"
+            animation="property: position; from: 8 0.7 11; to: -7 0.7 11; dur: 3000; 
+                       dir: alternate; loop: true">>
+        </a-entity>
+
+        <!-- Sand Castle -->
+        <a-entity
+            gltf-model="#my-castle"
+            position="-7.5 0.50 -7"
+            scale="0.4 0.4 0.4"
+            rotation="0 90 0">
+        </a-entity>
+
+        <!-- Treasure Chest -->
+        <a-entity
+            gltf-model="#my-model"
+            position="-5 0.05 0.08"
+            scale="1 1 1"
+            rotation="0 135 0">
+        </a-entity>
+
+        <!-- Towel  -->
+        <a-box 
+            position="1.5 0.05 -4"
+            rotation="0 0 0"
+            width="1.8"
+            height="0.05"
+            depth="2.5"
+            color="#3498db">
+        </a-box>
+
+        <!-- Floater -->
+        <a-torus
+            rotation="90 0 0"
+            radius="1"
+            radius-tubular="0.20"
+            color="#ff69b4"
+            segments-tubular="16"
+            segments-radial="12"
+            sound="src: #ocean; on: click"
+            animation="property: position; from: 6 0.3 5; to: 6 0.4 5; dur: 750; 
+                    dir: alternate; loop: true">
+        </a-torus>
+
+        <!-- Paraplu stock -->
+        <a-cylinder
+            position="2.7 1.1 -4"
+            radius="0.04"
+            height="3"
+            color="#795548">
+        </a-cylinder>
+
+        <!-- Paraplu -->
+        <a-cone
+            position="2.7 2.8 -4"
+            radius-bottom="1.5"
+            radius-top="0.1"
+            height="0.5"
+            color="#e74c3c">
+        </a-cone>
+
+        <!-- Sun -->
+        <a-sphere
+            position="15 20 30"
+            radius="3"
+            material="shader: flat; color: #FFFFE0">
+        </a-sphere>
+
+        <!-- Sunlight -->
+        <a-light
+            type="directional"
+            position="15 20 30"
+            color="#FFFFFF"
+            intensity="1.8">
+        </a-light>
+
+        <!-- Plane -->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="12" material="src: url(assets/Sand.webp)"></a-plane>
+        <a-plane position="0 0 8" rotation="-90 0 0" width="20" height="12" material="src: url(assets/Ocean.jpg)"></a-plane>
+    </a-scene>
+</body>
+</html>
